@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import './pages/loginpage.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -9,10 +11,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.indigo,
-
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: MyHomePage(title: 'Flutter Demo Home Page'),
@@ -22,7 +24,6 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
-
   final String title;
 
   @override
@@ -30,16 +31,48 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Container(
-        child: LoginPage(),
-      ),
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          title: Text(
+            'AU CAL',
+            style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.indigoAccent,
+                fontFamily: 'RobotoSlab-Bold',
+                letterSpacing: 1),
+          ),
+          elevation: 0,
+        ),
+        body: Center(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                FlatButton(
+                  child: Text('LOGIN PAGE'),
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> LoginPage()));
+                  },
+                ),
+                FlatButton(
+                  child: Text('SIGNUP PAGE'),
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> LoginPage()));
+                  },
+                ),
+                FlatButton(
+                  child: Text('THANK YOU PAGE'),
+                  onPressed: () {},
+                ),
+              ],
+            ),
+          ),
+        ),
+
     );
   }
 }

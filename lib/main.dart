@@ -1,3 +1,6 @@
+import 'package:aucal21/pages/homepage.dart';
+import 'package:aucal21/pages/signuppage.dart';
+import 'package:aucal21/pages/thankyoupage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import './pages/loginpage.dart';
@@ -35,6 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: Colors.white,
         appBar: AppBar(
           backgroundColor: Colors.white,
           title: Text(
@@ -48,31 +52,43 @@ class _MyHomePageState extends State<MyHomePage> {
           elevation: 0,
         ),
         body: Center(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                FlatButton(
-                  child: Text('LOGIN PAGE'),
-                  onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=> LoginPage()));
-                  },
-                ),
-                FlatButton(
-                  child: Text('SIGNUP PAGE'),
-                  onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=> LoginPage()));
-                  },
-                ),
-                FlatButton(
-                  child: Text('THANK YOU PAGE'),
-                  onPressed: () {},
-                ),
-              ],
-            ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              FlatButton(
+                child: Text('LOGIN PAGE'),
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => LoginPage()));
+                },
+              ),
+              FlatButton(
+                child: Text('SIGNUP PAGE'),
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => SignUpPage()));
+                },
+              ),
+              FlatButton(
+                child: Text('THANK YOU PAGE'),
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => ThankYouPage()));
+                },
+              ),
+              FlatButton(
+                child: Text('HOME PAGE'),
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => HomePage()));
+                },
+              ),
+
+            ],
           ),
         ),
-
+      ),
     );
   }
 }
